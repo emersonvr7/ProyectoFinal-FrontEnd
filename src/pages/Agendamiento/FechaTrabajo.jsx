@@ -284,7 +284,7 @@ const FechasTrabajo = () => {
                 whileHover={{ scale: 1.05 }} // Efecto de hover (ya lo tenías implementado)
                 whileTap={{ scale: 1.0 }} // Efecto al hacer clic (ya lo tenías implementado)
               >
-                <Card sx={{ backgroundColor: "#E3F2FD", borderRadius: 2 }}>
+                <Card sx={{ backgroundColor: "rgba(252, 255, 217, 0.1)", borderRadius: 2,   boxShadow: '0px 3px 9px rgba(0, 0, 0, 0.5)' }}>
                   <CardActionArea>
                     <CardContent>
                       <Box
@@ -304,19 +304,22 @@ const FechasTrabajo = () => {
                           <Typography variant="h6" component="div">
                             {dayjs(horario.fecha).format("D MMMM")}
                           </Typography>
-                          <Typography
-                            variant="body1"
-                            color="textPrimary"
-                            sx={{ marginTop: 1 }}
-                          >
-                            Empleado:{" "}
-                            {horario.idEmpleado
-                              ? horario.idEmpleado
-                              : "No asignado"}
-                          </Typography>
                           <Typography variant="body2">
-                            Estado: {horario.estado}
-                          </Typography>
+                  Estado:{" "}
+                  <span
+                    style={{
+                      backgroundColor:
+                        horario.estado === "activo"
+                          ? "rgba(87, 255, 112, 0.3)" // Color similar para estado activo
+                          : "rgba(230, 3, 30, 0.2)",  // Color similar para estado inactivo
+                      color: "black",
+                      padding: "2px 6px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    {horario.estado}
+                  </span>
+                </Typography>
                         </Box>
                         {fechasConHorasInactivas.some(
                           (f) => f.fecha === horario.fecha
@@ -326,7 +329,7 @@ const FechasTrabajo = () => {
                             onClick={() =>
                               handleViewHorasInactivas(horario.fecha)
                             }
-                            sx={{ marginLeft: 2 }}
+                            sx={{ marginLeft: 2  }}
                           >
                             <VisibilityIcon style={{ fontSize: "2.0rem" }} />
                           </IconButton>
@@ -345,7 +348,7 @@ const FechasTrabajo = () => {
                         >
                           <DeleteIcon
                             color="error"
-                            style={{ fontSize: "2.3rem" }}
+                            style={{ fontSize: "2.0rem" }}
                           />
                         </IconButton>
                       </Box>

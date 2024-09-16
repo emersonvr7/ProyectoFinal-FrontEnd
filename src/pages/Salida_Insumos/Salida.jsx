@@ -293,7 +293,7 @@ const Salida = () => {
                   <Table>
                     <TableHead>
                       <TableRow>
-                        <TableCell sx={{ fontWeight: "bold" }}>Campo</TableCell>
+                        <TableCell sx={{ fontWeight: "bold" }}>Campooooooo</TableCell>
                         <TableCell sx={{ fontWeight: "bold" }}>Valor</TableCell>
                       </TableRow>
                     </TableHead>
